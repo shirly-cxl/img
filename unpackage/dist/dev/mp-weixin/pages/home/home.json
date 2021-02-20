@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "uni-segmented-control": "/components/uni-segmented-control/uni-segmented-control",
+    "home-album": "/pages/homes/home-album/home-album",
+    "home-category": "/pages/homes/home-category/home-category",
+    "home-recommend": "/pages/homes/home-recommend/home-recommend",
+    "home-new": "/pages/homes/home-new/home-new"
+  }
+}

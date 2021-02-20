@@ -1,0 +1,78 @@
+
+.recommend_view.data-v-5269cbeb {
+	/* height:屏幕高度 - 头部高度 */
+	height: calc(100vh - 40px);
+}
+.recommend_wrap.data-v-5269cbeb {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.recommend_item.data-v-5269cbeb {
+	width: 50%;
+	border: 10rpx solid #fff;
+}
+.months_title.data-v-5269cbeb {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	padding: 20rpx;
+}
+.months_title_info.data-v-5269cbeb {
+	color: #d52a7e;
+	font-size: 30rpx;
+	font-weight: 600;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.months_info text.data-v-5269cbeb {
+	font-size: 38rpx;
+}
+.months_text.data-v-5269cbeb {
+	font-size: 34rpx;
+	color: #666;
+	margin-left: 30rpx;
+}
+.months_more.data-v-5269cbeb {
+	font-size: 26rpx;
+	color: #d52a7e;
+}
+.months_content.data-v-5269cbeb {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.months_item.data-v-5269cbeb {
+	width: 33.33%;
+	border: 10rpx solid #fff;
+}
+.hots_wrap.data-v-5269cbeb {}
+.hots_title.data-v-5269cbeb {
+	padding: 20rpx;
+}
+.hots_title text.data-v-5269cbeb {
+	border-left: 10rpx solid #d52a7e;
+	padding-left: 20rpx;
+	font-size: 36rpx;
+	font-weight: 600;
+}
+.hots_content.data-v-5269cbeb {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.hots_item.data-v-5269cbeb {
+	width: 33.33%;
+	border: 5rpx solid #fff;
+}
+

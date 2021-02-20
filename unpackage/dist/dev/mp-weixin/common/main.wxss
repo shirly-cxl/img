@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+swiper,
+navigator,
+swiper-item,
+text,
+image,
+input,
+scroll-view,
+page,
+view {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+image {
+	width: 100%;
+	display: block;
+}
+page {
+	font-size: 28rpx;
+	color: #666;
+}
+

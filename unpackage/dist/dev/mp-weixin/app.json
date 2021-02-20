@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/video/video",
+    "pages/search/search",
+    "pages/mine/mine",
+    "pages/horizontal/horizontal",
+    "pages/homes/home-category/home-category",
+    "pages/homes/home-new/home-new",
+    "pages/homes/home-recommend/home-recommend",
+    "pages/homes/home-album/home-album",
+    "pages/homes/album/album",
+    "components/goDetail/goDetail",
+    "pages/homes/imgDetail/imgDetail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "懂你找图",
+    "navigationBarBackgroundColor": "#000"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#d4237a",
+    "borderStyle": "black",
+    "position": "bottom",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/horizontal/horizontal",
+        "text": "横屏"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "视频"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

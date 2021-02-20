@@ -1,0 +1,67 @@
+
+.recommend_view {
+	/* height:屏幕高度 - 头部高度 */
+	height: calc(100vh - 40px);
+}
+.album_swiper swiper{
+	height: calc(750rpx / 2.3);
+}
+.album_swiper swiper image{
+	height: 100%;
+}
+.album_list{
+	padding: 10rpx;
+}
+.album_item{
+	padding: 10rpx 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	border-bottom: 1rpx solid #ccc;
+}
+.album_img{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	padding: 10rpx;
+}
+.album_img image{
+	width: 200rpx;
+	height: 200rpx;
+}
+.album_info{
+	-webkit-box-flex: 2;
+	-webkit-flex: 2;
+	        flex: 2;
+	overflow: hidden;
+	padding: 0 10rpx;
+}
+.album_name{
+	font-size:34rpx;
+	color:  #000;
+	font-weight: bold;
+	padding: 10rpx 0;
+}
+.album_desc{
+	padding: 10rpx 0;
+	font-size: 28rpx;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.album_btn{
+	padding: 10rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	        justify-content: flex-end;
+}
+.album_attention{
+	color: #d52a7e;
+	font-size: 24rpx;
+	border: 1rpx solid #d52a7e;
+	padding: 10rpx ;
+}
+
