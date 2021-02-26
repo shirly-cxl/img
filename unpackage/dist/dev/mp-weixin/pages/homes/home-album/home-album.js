@@ -236,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 73:
+/***/ 78:
 /*!*********************************************************************************************!*\
   !*** E:/HBuilderProjects/weixin/main.js?{"page":"pages%2Fhomes%2Fhome-album%2Fhome-album"} ***!
   \*********************************************************************************************/
@@ -252,5 +252,5 @@ createPage(_homeAlbum.default);
 
 /***/ })
 
-},[[73,"common/runtime","common/vendor"]]]);
+},[[78,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../../.sourcemap/mp-weixin/pages/homes/home-album/home-album.js.map

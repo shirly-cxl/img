@@ -137,7 +137,7 @@ var _default =
 
 /***/ }),
 
-/***/ 70:
+/***/ 75:
 /*!***************************************************************************************************!*\
   !*** E:/HBuilderProjects/weixin/main.js?{"page":"pages%2Fhomes%2Fhome-category%2Fhome-category"} ***!
   \***************************************************************************************************/
@@ -153,5 +153,5 @@ createPage(_homeCategory.default);
 
 /***/ })
 
-},[[70,"common/runtime","common/vendor"]]]);
+},[[75,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../../.sourcemap/mp-weixin/pages/homes/home-category/home-category.js.map
