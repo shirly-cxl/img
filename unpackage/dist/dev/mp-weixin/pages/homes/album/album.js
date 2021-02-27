@@ -375,8 +375,8 @@ var _goDetail = __webpack_require__(/*! ../../../components/goDetail/goDetail */
 
   onLoad: function onLoad(options) {
     console.log(options);
-    // this.id = options.id;
-    this.id = "5d5f8e45e7bce75ae7fb8278";
+    this.id = options.id;
+    // this.id ="5d5f8e45e7bce75ae7fb8278";
     this.getlist();
   },
   //页面触底 上拉加载下一页

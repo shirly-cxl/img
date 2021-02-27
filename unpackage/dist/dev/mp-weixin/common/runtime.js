@@ -109,7 +109,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/uni-segmented-control/uni-segmented-control":"components/uni-segmented-control/uni-segmented-control"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/uni-segmented-control/uni-segmented-control":"components/uni-segmented-control/uni-segmented-control","components/myswiper/myswiper":"components/myswiper/myswiper"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

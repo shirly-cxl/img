@@ -92,7 +92,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  myswiper: function() {
+    return __webpack_require__.e(/*! import() | components/myswiper/myswiper */ "components/myswiper/myswiper").then(__webpack_require__.bind(null, /*! @/components/myswiper/myswiper.vue */ 103))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -130,7 +134,31 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -269,15 +297,46 @@ var _moment = _interopRequireDefault(__webpack_require__(/*! ../../../utils/mome
 //
 //
 //
-//设置语言为中文
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var myswiper = function myswiper() {__webpack_require__.e(/*! require.ensure | components/myswiper/myswiper */ "components/myswiper/myswiper").then((function () {return resolve(__webpack_require__(/*! ../../../components/myswiper/myswiper.vue */ 103));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);}; //设置语言为中文
 // moment.locale('zh-cn');
-var _default = { data: function data() {return { imgDetail: {}, //专辑数据
+var _default = { components: { myswiper: myswiper }, data: function data() {return { imgDetail: {}, //专辑数据
       album: [], //最热评论
       hot: [], //最新评论
-      comment: [] };}, methods: { getComments: function getComments(id) {var _this = this;this.request({ url: 'http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/' + id + '/comment' }).then(function (result) {console.log(result);_this.album = result.res.album;_this.hot = result.res.hot;_this.comment = result.res.comment;});} }, onLoad: function onLoad() {console.log(getApp().globalData);var _getApp$globalData = getApp().globalData,imgList = _getApp$globalData.imgList,imgIndex = _getApp$globalData.imgIndex;this.imgDetail = imgList[imgIndex];this.imgDetail.newThumb = this.imgDetail.thumb + this.imgDetail.rule.replace('$<Height>', 360); //xxx年前的数据
-    this.imgDetail.crTime = (0, _moment.default)(this.imgDetail.atime * 1000).fromNow(); //获取图片详情id
-    // this.imgDetail.id
-    this.getComments(this.imgDetail.id);} };exports.default = _default;
+      comment: [], //图片索引
+      imgIndex: 0 };}, onLoad: function onLoad() {// console.log(getApp().globalData);
+    var imgIndex = getApp().globalData.imgIndex;this.imgIndex = imgIndex;this.getDate();}, methods: { getDate: function getDate() {var imgList = getApp().globalData.imgList;this.imgDetail = imgList[this.imgIndex]; // this.imgDetail.newThumb = this.imgDetail.thumb + this.imgDetail.rule.replace('$<Height>',360)
+      //xxx年前的数据
+      this.imgDetail.crTime = (0, _moment.default)(this.imgDetail.atime * 1000).fromNow(); //获取图片详情id
+      // this.imgDetail.id
+      this.getComments(this.imgDetail.id);}, getComments: function getComments(id) {var _this = this;this.request({ url: 'http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/' + id + '/comment' }).then(function (result) {console.log(result);_this.album = result.res.album; //给hot添加时间属性 xx月前
+        result.res.hot.forEach(function (v) {return v.cnTime = (0, _moment.default)(v.atime * 1000).fromNow();});_this.hot = result.res.hot;result.res.comment.forEach(function (v) {return v.cnTime = (0, _moment.default)(v.atime * 1000).fromNow();});_this.comment = result.res.comment;});}, handleMySwiper: function handleMySwiper(e) {// console.log(e);
+      var imgList = getApp().globalData.imgList; //左滑 imgIndex++
+      if (e.direction === "left" && this.imgIndex < imgList.length - 1) {this.imgIndex++;this.getDate();} else if (e.direction === "right" && this.imgIndex > 0) {this.imgIndex--;this.getDate();} else {uni.showToast({ title: '没有数据了', icon: 'none' });}} } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

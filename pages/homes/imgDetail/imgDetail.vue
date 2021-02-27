@@ -11,7 +11,9 @@
 		</view>
 		
 		<view class="high_img">
-			<image :src="imgDetail.newThumb" mode="widthFix"></image>
+			<myswiper @myswiper="handleMySwiper">
+				<image :src="imgDetail.thumb" mode="widthFix"></image>
+			</myswiper>
 		</view>
 		
 		<view class="user_rank">
@@ -23,7 +25,7 @@
 			</view>
 		</view>
 		
-		<view class="album_wrap">
+		<view class="album_wrap" v-if="album.length">
 			<view class="album_title">相关</view>
 			<view class="album_list">
 				<view class="album_item" v-for="item in album" :key="item.id">
@@ -39,22 +41,44 @@
 			</view>
 		</view>
 		
-		<view class="comment">
+		<view class="comment" v-if="hot.length">
 			<view class="comment_title">
 				<text class="comment_text">最热评论</text>
 			</view>
 			<view class="comment_list">
 				<view class="comment_item" v-for="item in hot" :key="item.id">
 					<view class="comment_user">
-						<view class="user_icon">
-							<image :src="item.user.avatar"></image>
-							<view class="user_name">
-								<view class="user_name">{{item.user.name}}</view>
-								<view class="user_time">{{item.atime}}</view>
-							</view>
-							<view class="usr_badge">
-								<image v-for="item2 in item.user.title" :key="item2.id" :src="item2.icon"></image>
-							</view>
+						<image class="image1" :src="item.user.avatar" mode="widthFix"></image>
+						<view class="user2_name">
+							<view class="user2_nickname">{{item.user.name}}</view>
+							<view class="user2_time">{{item.cnTime}}</view>
+						</view>
+						<view class="usre2_badge">
+							<image class="image2" v-for="item2 in item.user.title" :key="item2.id" :src="item2.icon"></image>
+						</view>
+					</view>
+					<view class="comment_desc">
+						<view class="comment_content">{{item.content}}</view>
+						<view class="comment_like">点赞：{{item.size}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="comment" v-if="comment.length">
+			<view class="comment_title">
+				<text class="comment_text">最新评论</text>
+			</view>
+			<view class="comment_list">
+				<view class="comment_item" v-for="item in comment" :key="item.id">
+					<view class="comment_user">
+						<image class="image1" :src="item.user.avatar" mode="widthFix"></image>
+						<view class="user2_name">
+							<view class="user2_nickname">{{item.user.name}}</view>
+							<view class="user2_time">{{item.cnTime}}</view>
+						</view>
+						<view class="usre2_badge">
+							<image class="image2" v-for="item2 in item.user.title" :key="item2.id" :src="item2.icon"></image>
 						</view>
 					</view>
 					<view class="comment_desc">
@@ -69,9 +93,13 @@
 
 <script>
 	import moment from "../../../utils/moment.js";
+	import myswiper from "../../../components/myswiper/myswiper.vue";
 	//设置语言为中文
 	// moment.locale('zh-cn');
 	export default {
+		components:{
+			myswiper
+		},
 		data() {
 			return {
 				imgDetail:{},
@@ -81,32 +109,62 @@
 				hot:[],
 				//最新评论
 				comment:[],
+				//图片索引
+				imgIndex:0,
 			}
 		},
+		onLoad() {
+			// console.log(getApp().globalData);
+			const {imgIndex} = getApp().globalData;
+			this.imgIndex = imgIndex;
+			this.getDate();
+		
+		},
 		methods: {
+			getDate(){
+				const {imgList} = getApp().globalData;
+				this.imgDetail = imgList[this.imgIndex];
+				// this.imgDetail.newThumb = this.imgDetail.thumb + this.imgDetail.rule.replace('$<Height>',360)
+				//xxx年前的数据
+				this.imgDetail.crTime =moment(this.imgDetail.atime*1000).fromNow();
+				//获取图片详情id
+				// this.imgDetail.id
+				this.getComments(this.imgDetail.id);
+			},
+			
 			getComments(id){
 				this.request({
 					url:'http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/'+id+'/comment'
 				}).then(result => {
 					console.log(result);
 					this.album = result.res.album;
+					//给hot添加时间属性 xx月前
+					result.res.hot.forEach(v => v.cnTime = moment(v.atime*1000).fromNow());
 					this.hot = result.res.hot;
+					result.res.comment.forEach(v => v.cnTime = moment(v.atime*1000).fromNow());
 					this.comment = result.res.comment;
 				})
+			},
+			
+			handleMySwiper(e){
+				// console.log(e);
+				const {imgList} = getApp().globalData;
+				//左滑 imgIndex++
+				if(e.direction === "left" && this.imgIndex < imgList.length -1){
+					this.imgIndex ++;
+					this.getDate();
+				}else if(e.direction === "right" && this.imgIndex >0){
+					this.imgIndex --;
+					this.getDate();
+				}else{
+					uni.showToast({
+						title:'没有数据了',
+						icon:'none'
+					})
+				}
 			}
-		},
-		onLoad() {
-			console.log(getApp().globalData);
-			const {imgList,imgIndex} = getApp().globalData;
-			this.imgDetail = imgList[imgIndex];
-			this.imgDetail.newThumb = this.imgDetail.thumb + this.imgDetail.rule.replace('$<Height>',360)
-			//xxx年前的数据
-			this.imgDetail.crTime =moment(this.imgDetail.atime*1000).fromNow();
-			//获取图片详情id
-			// this.imgDetail.id
-			this.getComments(this.imgDetail.id);
-		
 		}
+		
 	}
 </script>
 
@@ -215,15 +273,47 @@
 		font-size: 28rpx;
 		/* margin-left: 10rpx; */
 	}
-	.comment_list{}
-	.comment_item{}
-	.comment_user{}
-	.user_icon{}
-	.user_name{}
-	.user_name{}
-	.user_time{}
-	.usr_badge{}
-	.comment_desc{}
-	.comment_content{}
-	.comment_like{}
+	
+	.comment_item{
+		border-bottom: 15rpx solid #eee;
+		padding: 16rpx;
+	}
+	.comment_user{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 20rpx 0;
+	}
+	 .image1{
+		width: 15%;
+	} 
+	.user2_name{
+		flex:1;
+		padding-left: 10rpx;
+	}
+	.user2_nickname{
+		color: #777;
+	}
+	.user2_time{
+		color: #ccc;
+		font-size: 24rpx;
+		padding: 5rpx;
+	}
+	.image2{
+		width: 40rpx;
+		height: 40rpx;
+	}
+	.comment_desc{
+		display: flex;
+		padding: 30rpx 0;
+	}
+	.comment_content{
+		flex: 1;
+		padding-left: 15%;
+		color: #000000;
+	}
+	.comment_like{
+		text-align: right;
+	}
 </style>
