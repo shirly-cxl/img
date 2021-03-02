@@ -1,1 +1,1 @@
-<view></view>
+<view><view class="home_category"><block wx:for="{{category}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><navigator class="cate_item" url="/pages/homes/imgCategory/imgCategory?id={{item.id}}"><image class="cate_img" src="{{item.cover}}" mode="aspectFill"></image><view class="cate_name">{{item.name}}</view></navigator></block></view></view>

@@ -1,4 +1,8 @@
 {
   "navigationBarTitleText": "视频",
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-segmented-control": "/components/uni-segmented-control/uni-segmented-control",
+    "video-category": "/pages/videos/video_category/video_category",
+    "video-main": "/pages/videos/video_main/video_main"
+  }
 }

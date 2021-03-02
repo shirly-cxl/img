@@ -1,0 +1,14 @@
+
+.video_main{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	height: calc(100vh - 36px);
+}
+.video_item{
+	width: 33.33%;
+	border: 5rpx solid #fff;
+}
+

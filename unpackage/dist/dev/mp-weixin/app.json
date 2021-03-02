@@ -11,7 +11,11 @@
     "pages/homes/home-album/home-album",
     "pages/homes/album/album",
     "components/goDetail/goDetail",
-    "pages/homes/imgDetail/imgDetail"
+    "pages/homes/imgDetail/imgDetail",
+    "pages/homes/imgCategory/imgCategory",
+    "pages/videos/video_main/video_main",
+    "pages/videos/video_category/video_category",
+    "pages/videos/videoPlay/videoPlay"
   ],
   "subPackages": [],
   "window": {

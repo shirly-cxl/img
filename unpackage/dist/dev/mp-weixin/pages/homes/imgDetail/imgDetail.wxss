@@ -168,6 +168,7 @@
 .image2{
 	width: 40rpx;
 	height: 40rpx;
+	display: inline-block;
 }
 .comment_desc{
 	display: -webkit-box;
@@ -185,4 +186,36 @@
 .comment_like{
 	text-align: right;
 }
+
+/* 下载图片 */
+.download{
+	height: 120rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.download_btn{
+	width: 90%;
+	height: 80%;
+	color: #fff;
+	font-size: 40rpx;
+	background-color: #d52a7e;
+	font-weight: 600;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+
 

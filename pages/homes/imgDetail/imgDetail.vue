@@ -6,7 +6,7 @@
 			</view>
 			<view class="user_desc">
 				<view class="user_name">{{imgDetail.user.name}}</view>
-				<view class="user_time">{{imgDetail.crTime}}</view>
+				<view class="user_time">{{imgDetail.cnTime}}</view>
 			</view>
 		</view>
 		
@@ -88,6 +88,10 @@
 				</view>
 			</view>
 		</view>
+	
+		<view class="download">
+			<view class="download_btn" @click="handledownload">下载图片</view>
+		</view>
 	</view>
 </template>
 
@@ -126,7 +130,7 @@
 				this.imgDetail = imgList[this.imgIndex];
 				// this.imgDetail.newThumb = this.imgDetail.thumb + this.imgDetail.rule.replace('$<Height>',360)
 				//xxx年前的数据
-				this.imgDetail.crTime =moment(this.imgDetail.atime*1000).fromNow();
+				this.imgDetail.cnTime =moment(this.imgDetail.atime*1000).fromNow();
 				//获取图片详情id
 				// this.imgDetail.id
 				this.getComments(this.imgDetail.id);
@@ -162,6 +166,33 @@
 						icon:'none'
 					})
 				}
+			},
+			
+			
+			// handledownload(){
+			// 	uni.downloadFile({
+			// 		url:this.imgDetail.img
+			// 	}).then(result =>{
+					
+			// 		console.log(result);
+			// 	});
+			// }
+			async handledownload(){
+				await uni.showLoading({
+					title:"下载中"
+				});
+				// 1.将远程文件下载到小程序内存中tempFilePath
+				const result =await uni.downloadFile({url:this.imgDetail.img});
+				const {tempFilePath} = result[1];
+				// 2.将小程序内存中的临时文件下载到本地上
+				const result2 =await uni.saveImageToPhotosAlbum({filePath:tempFilePath});
+				
+				// 3.提示用户下载成功
+				uni.hideLoading();
+				await uni.showToast({
+					title:'下载成功'
+				});
+				console.log('下载成功');
 			}
 		}
 		
@@ -303,6 +334,7 @@
 	.image2{
 		width: 40rpx;
 		height: 40rpx;
+		display: inline-block;
 	}
 	.comment_desc{
 		display: flex;
@@ -316,4 +348,23 @@
 	.comment_like{
 		text-align: right;
 	}
+	/* 下载图片 */
+	.download{
+		height: 120rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.download_btn{
+		width: 90%;
+		height: 80%;
+		color: #fff;
+		font-size: 40rpx;
+		background-color: #d52a7e;
+		font-weight: 600;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
 </style>

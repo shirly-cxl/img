@@ -21,7 +21,7 @@
 		<view class="album_list">
 			<view class="album_item" v-for="(item,index) in wallpaper" :key="item.id">
 				<go-detail :list="wallpaper" :index="index">
-					<image :src="item.thumb +item.rule.replace('$<Height>',360)" mode="widthFix"></image>
+					<image class="album_img" :src="item.thumb +item.rule.replace('$<Height>',360)" mode="aspectFill"></image>
 				</go-detail>
 			</view>
 		</view>
@@ -158,5 +158,8 @@
 	.album_item{
 		width: 33.33%;
 		border: 3rpx solid #fff;
+	}
+	.album_img{
+		height: 160rpx;
 	}
 </style>
