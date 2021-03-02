@@ -16,10 +16,10 @@
 				<view v-if="current === 1">
 					<home-category></home-category>
 				</view>
-				<view v-if="current === 2">
+				<!-- <view v-if="current === 2">
 					<home-new></home-new>
-				</view>
-				<view v-if="current === 3">
+				</view> -->
+				<view v-if="current === 2">
 					<home-album></home-album>
 				</view>
 			</view>
@@ -47,7 +47,7 @@
 				items: [
 					{title:"推荐"},
 					{title:"分类"},
-					{title:"最新"},
+					// {title:"最新"},
 					{title:"专辑"}
 				],
 				current: 0,

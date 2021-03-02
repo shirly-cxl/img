@@ -111,20 +111,12 @@ var render = function() {
           params: _vm.items[_vm.current].params
         }
       : null
-  var a1 =
-    _vm.current === 4
-      ? {
-          url: _vm.items[_vm.current].url,
-          params: _vm.items[_vm.current].params
-        }
-      : null
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
         g0: g0,
-        a0: a0,
-        a1: a1
+        a0: a0
       }
     }
   )
@@ -216,14 +208,14 @@ var _video_main = _interopRequireDefault(__webpack_require__(/*! ../../pages/vid
       {
         title: "热门",
         url: "http://157.122.54.189:9088/videoimg/v1/videowp/videowp",
-        params: { limit: 30, skip: 0, order: "hot" } },
+        params: { limit: 30, skip: 0, order: "hot" } }
 
-      {
-        title: "分类",
-        url: "http://157.122.54.189:9088/videoimg/v1/videowp/category",
-        params: {} }],
-
-
+      // {
+      // 	title:"分类",
+      // 	url:"http://157.122.54.189:9088/videoimg/v1/videowp/category",
+      // 	params:{},
+      // }
+      ],
       current: 0 };
 
   },

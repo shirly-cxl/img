@@ -13,9 +13,9 @@
 				<view v-if="current < 4">
 					<video-main :urlobj="{url:items[current].url,params:items[current].params}"></video-main>
 				</view>
-				<view v-if="current === 4">
+				<!-- <view v-if="current === 4">
 					<video-category :urlobj="{url:items[current].url,params:items[current].params}"></video-category>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>
@@ -55,11 +55,11 @@
 						url:"http://157.122.54.189:9088/videoimg/v1/videowp/videowp",
 						params:{limit:30,skip:0,order:"hot"},
 					},
-					{
-						title:"分类",
-						url:"http://157.122.54.189:9088/videoimg/v1/videowp/category",
-						params:{},
-					}
+					// {
+					// 	title:"分类",
+					// 	url:"http://157.122.54.189:9088/videoimg/v1/videowp/category",
+					// 	params:{},
+					// }
 				],
 				current: 0,
 			}
